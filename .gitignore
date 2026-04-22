@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# User-specific config (keep .example versions committed, actual config stays local)
+rules.json
+.env
+.env.local
+
+# Personal usage logs / generated artifacts
+safety-check-log.json
+discovery-log.json
+scripts/current.pine
+temp_*
+*.log
+
+# Screenshots (user-generated content)
+screenshots/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
