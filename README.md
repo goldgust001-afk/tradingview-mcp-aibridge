@@ -18,7 +18,7 @@ Claude Code에 아래 프롬프트 한 번만 복사-붙여넣기:
 
 ```
 Set up tradingview-mcp-aibridge for me.
-Clone https://github.com/<YOUR_GITHUB_HANDLE>/tradingview-mcp-aibridge.git into the current project directory.
+Clone https://github.com/aibridge-leo/tradingview-mcp-aibridge.git into the current project directory.
 Run npm install inside it.
 Create .mcp.json in the project root with:
   {
@@ -33,7 +33,7 @@ Copy rules.example.json to rules.json so I can fill in my strategy.
 Tell me to: (1) launch TradingView with scripts/launch_tv_debug.bat on Windows (auto-detects MSIX install), (2) restart Claude Code, (3) run tv_health_check to verify.
 ```
 
-> **중요**: `<YOUR_GITHUB_HANDLE>`을 본인의 GitHub 핸들로 바꿔주세요. 본인 프로젝트에서 fork해서 사용하시는 경우 `AIBridge-Lab/tradingview-mcp-aibridge`같은 형태입니다.
+> fork해서 본인 버전을 쓰시려면 clone URL을 본인 저장소로 바꿔주세요.
 
 ## 사전 요구 사항
 

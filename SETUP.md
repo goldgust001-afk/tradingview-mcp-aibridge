@@ -32,7 +32,7 @@ TradingView 계정은 무료 플랜도 동작하지만, 유료(Pro/Premium) 플�
 #### 2.1 Clone
 
 ```bash
-git clone https://github.com/<YOUR_GITHUB_HANDLE>/tradingview-mcp-aibridge.git
+git clone https://github.com/aibridge-leo/tradingview-mcp-aibridge.git
 cd tradingview-mcp-aibridge
 npm install
 ```
