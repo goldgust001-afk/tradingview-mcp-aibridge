@@ -21,6 +21,16 @@
 
 TradingView 계정은 무료 플랜도 동작하지만, 유료(Pro/Premium) 플랜일수록 동시 지표 수 제한이 완화되어 다수 기능을 활용할 수 있습니다.
 
+### Windows 사전 조건: 개발자 모드(Developer Mode) 필수
+
+Windows에서 TradingView가 MSIX(Microsoft Store) 설치인 경우 — 최근 배포 기본값 — **개발자 모드를 켜야 CDP(`--remote-debugging-port`)가 동작**합니다. MSIX 앱은 개발자 모드가 꺼져 있으면 커맨드 라인 인자가 전달돼도 Electron이 디버그 포트를 열지 않습니다.
+
+켜는 방법:
+- Windows 10: **설정 → 업데이트 및 보안 → 개발자용 → 개발자 모드: 켬**
+- Windows 11: **설정 → 개인 정보 보호 및 보안 → 개발자용 → 개발자 모드: 켬**
+
+확인 프롬프트가 뜨면 **예(Yes)**. 한 번만 켜두면 됩니다. 클래식 `.exe` 설치(드물게 `%LOCALAPPDATA%\TradingView\`)인 경우에는 불필요합니다.
+
 ## 2. 설치
 
 ### 옵션 A: One-Shot 프롬프트 (권장)
@@ -73,7 +83,11 @@ cp rules.example.json rules.json
 .\scripts\launch_tv_debug.bat
 ```
 
-이 스크립트는 `Get-AppxPackage TradingView.Desktop`으로 실제 설치 경로(`C:\Program Files\WindowsApps\TradingView.Desktop_*\TradingView.exe`)를 자동 탐지한 뒤 `--remote-debugging-port=9222` 플래그로 재실행합니다. 버전 업데이트 시에도 재설정 불필요.
+이 스크립트는 `Get-AppxPackage TradingView.Desktop`으로 설치된 패키지를 탐지한 뒤, Microsoft의 `IApplicationActivationManager` COM API(`AUMID` 기반)로 `--remote-debugging-port=9222` 플래그를 전달하며 실행합니다. `WindowsApps` 폴더의 ACL 제약과 무관하게 동작하고, 버전 업데이트 시에도 재설정 불필요.
+
+> **MSIX는 개발자 모드가 켜져 있어야 합니다.** 스크립트는 시작 시 이 전제를 검사하고, 꺼져 있으면 안내 메시지와 함께 종료합니다. 위의 "Windows 사전 조건" 섹션 참고.
+>
+> MSIX 콜드 스타트는 느려서(30–60초) 스크립트 타임아웃은 최대 90초로 설정되어 있습니다.
 
 **macOS:**
 
@@ -153,6 +167,11 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\launch_tv_debu
 ```
 
 - `Get-AppxPackage TradingView.Desktop`이 비어있다면 TradingView Desktop이 설치되지 않은 것. MSIX 파일 더블클릭으로 설치 먼저.
+
+### Windows에서 스크립트는 성공했다는데 `/mcp`/`tv_health_check`가 실패
+
+- 대개 개발자 모드가 꺼진 상태. 스크립트가 감지해서 종료하지만, 혹시 우회했다면 `Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock' AllowDevelopmentWithoutDevLicense`로 `1`인지 확인
+- 한 번 켠 뒤 `scripts\launch_tv_debug.bat` 재실행
 
 ### MSIX 아닌 전통 방식(.exe)으로 설치된 경우
 

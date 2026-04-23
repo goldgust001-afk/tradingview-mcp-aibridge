@@ -47,6 +47,7 @@ TradingView MCP by AI BRIDGE를 설치해줘.
 
 - TradingView Desktop 설치 (기존 설치가 있어야 함)
 - TradingView 로그인
+- **Windows에서 MSIX 설치를 쓰는 경우: 개발자 모드(Developer Mode) ON** — 안 켜져 있으면 CDP 포트가 안 열려 MCP 연결 실패. `설정 → 업데이트 및 보안 → 개발자용 → 개발자 모드: 켬` (Win11은 `개인 정보 보호 및 보안 → 개발자용`). 한 번만 켜두면 됨.
 - `rules.json`에 본인 전략 채우기 (선택, 기본 템플릿으로도 동작)
 - 실거래 자동화 연결 (별도 설정 필요)
 
