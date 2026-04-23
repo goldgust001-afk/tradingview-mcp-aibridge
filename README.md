@@ -7,8 +7,7 @@
 - ✅ **Windows MSIX 네이티브 지원** — `Get-AppxPackage` 기반 자동 경로 탐지
 - ✅ **업비트/빗썸/바이낸스 심볼 기본 제공** — 한국 원화 페어 바로 사용
 - ✅ **김치 프리미엄 자동 계산 도구** — `kimchi_premium` 신규 툴
-- ✅ **한국어 rules 템플릿 + 타임존(Asia/Seoul)** — 한국 시장 시간 리스크 룰
-- ✅ 기존 80여 개 TradingView 제어 도구 전부 포함
+- ✅ 기존 TradingView 제어 도구 전부 포함
 
 ---
 
@@ -29,7 +28,6 @@ Create .mcp.json in the project root with:
       }
     }
   }
-Copy rules.example.json to rules.json so I can fill in my strategy.
 Tell me to: (1) launch TradingView with scripts/launch_tv_debug.bat on Windows (auto-detects MSIX install), (2) restart Claude Code, (3) run tv_health_check to verify.
 ```
 
@@ -60,9 +58,6 @@ Claude Code에서 자연어로:
 "BTC 김치 프리미엄 알려줘"             ← AI BRIDGE 추가
 → kimchi_premium (UPBIT:BTCKRW, BINANCE:BTCUSDT, USD/KRW 자동 비교)
 
-"morning_brief 실행해줘"
-→ rules.json 기반 워치리스트 전체 편향 분석
-
 "이 Pine Script 버그 찾아 고쳐줘"
 → pine_get_source, pine_set_source, pine_smart_compile
 ```
@@ -83,30 +78,6 @@ Claude Code에서 자연어로:
 전체 목록 및 도구 선택 가이드는 [CLAUDE.md](./CLAUDE.md) 참고.
 
 ## 한국 트레이더 기본 설정
-
-### `rules.json` 구조 (미리 작성된 한국 템플릿)
-
-```json
-{
-  "locale": {
-    "language": "ko",
-    "timezone": "Asia/Seoul",
-    "default_exchange": "UPBIT",
-    "base_currency": "KRW"
-  },
-  "watchlist": [
-    "UPBIT:BTCKRW",
-    "UPBIT:ETHKRW",
-    "UPBIT:SOLKRW",
-    "BINANCE:BTCUSDT"
-  ],
-  "korean_features": {
-    "kimchi_premium_alert_threshold": 3.0,
-    "preferred_kr_exchange": "UPBIT",
-    "preferred_global_exchange": "BINANCE"
-  }
-}
-```
 
 ### 심볼 표기
 
@@ -132,7 +103,6 @@ tradingview-mcp-aibridge/
 │   └── launch_tv_debug.ps1  # 런처 로직 (PowerShell)
 ├── agents/                  # Claude Code 서브 에이전트
 ├── skills/                  # 워크플로 스킬
-├── rules.example.json       # 공개 템플릿 (이걸 rules.json으로 복사 후 편집)
 ├── CLAUDE.md                # 도구 선택 가이드 (Claude가 자동 로드)
 ├── SETUP.md                 # 상세 설치 가이드
 ├── package.json
@@ -152,13 +122,12 @@ tradingview-mcp-aibridge/
 이 프로젝트는 아래 오픈소스 프로젝트 위에 쌓아 올렸습니다.
 
 - 원본: [tradesdontlie/tradingview-mcp](https://github.com/tradesdontlie/tradingview-mcp) — TradingView Desktop ↔ Claude Code 연결의 기초를 만든 프로젝트
-- 바로 앞 fork: [LewisWJackson/tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — `morning_brief`, `rules.json`, one-shot setup 구조 추가
+- 바로 앞 fork: [LewisWJackson/tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — one-shot setup 구조 추가
 
 AI BRIDGE fork가 추가한 것:
 - Windows MSIX 환경 네이티브 지원 (`Get-AppxPackage` 기반 런처)
-- 한국 트레이더 전용 기본 설정 (UPBIT/KRW/Asia-Seoul)
 - `kimchi_premium` 툴 (업비트 ↔ 바이낸스 ↔ USD/KRW 자동 계산)
-- 한국어 템플릿 + 문서화
+- 한국어 문서화
 
 ## 라이선스
 

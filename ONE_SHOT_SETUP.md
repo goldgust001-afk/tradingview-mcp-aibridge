@@ -23,8 +23,7 @@ TradingView MCP by AI BRIDGE를 설치해줘.
      }
    }
    이미 .mcp.json이 있으면 mcpServers 객체에 tradingview 항목만 추가해주고 기존 서버는 보존해줘.
-4. tradingview-mcp-aibridge/rules.example.json 을 tradingview-mcp-aibridge/rules.json 으로 복사.
-5. 설치 끝나면 아래 순서대로 안내해줘:
+4. 설치 끝나면 아래 순서대로 안내해줘:
    (1) Windows면 tradingview-mcp-aibridge/scripts/launch_tv_debug.bat 더블클릭 (MSIX 경로 자동 탐지)
        Mac이면 scripts/launch_tv_debug_mac.sh, Linux면 scripts/launch_tv_debug_linux.sh 실행
    (2) Claude Code 재시작 (/exit 후 현재 디렉토리에서 claude 재실행)
@@ -40,15 +39,13 @@ TradingView MCP by AI BRIDGE를 설치해줘.
 1. 현재 작업 중인 프로젝트 디렉토리 안에 MCP 서버 소스를 clone
 2. Node 의존성 설치
 3. Claude Code가 MCP 서버를 찾을 수 있도록 `.mcp.json` 생성/병합
-4. 본인 전략을 담을 `rules.json` 템플릿 복사
-5. 사용자가 해야 할 나머지 3단계(실행/재시작/검증)를 안내
+4. 사용자가 해야 할 나머지 3단계(실행/재시작/검증)를 안내
 
 ## 프롬프트가 하지 않는 일 (사용자가 직접)
 
 - TradingView Desktop 설치 (기존 설치가 있어야 함)
 - TradingView 로그인
 - **Windows에서 MSIX 설치를 쓰는 경우: 개발자 모드(Developer Mode) ON** — 안 켜져 있으면 CDP 포트가 안 열려 MCP 연결 실패. `설정 → 업데이트 및 보안 → 개발자용 → 개발자 모드: 켬` (Win11은 `개인 정보 보호 및 보안 → 개발자용`). 한 번만 켜두면 됨.
-- `rules.json`에 본인 전략 채우기 (선택, 기본 템플릿으로도 동작)
 - 실거래 자동화 연결 (별도 설정 필요)
 
 ## 설치 후 막히면

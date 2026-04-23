@@ -47,15 +47,7 @@ cd tradingview-mcp-aibridge
 npm install
 ```
 
-#### 2.2 rules.json 준비
-
-```bash
-cp rules.example.json rules.json
-```
-
-`rules.json`은 `.gitignore` 되어 있어 본인 전략이 repo에 커밋되지 않습니다. 에디터로 열어 워치리스트와 bias/risk 기준을 본인 것으로 바꾸세요.
-
-#### 2.3 `.mcp.json` 생성
+#### 2.2 `.mcp.json` 생성
 
 **프로젝트 루트**(Claude Code를 실행하는 디렉토리)에 `.mcp.json`:
 
@@ -75,7 +67,7 @@ cp rules.example.json rules.json
 
 > **중요**: Windows 경로는 역슬래시(`\`) 대신 슬래시(`/`)를 사용하거나, 이스케이프(`\\`)해야 JSON 파싱에 문제없습니다.
 
-#### 2.4 TradingView Desktop을 CDP 모드로 실행
+#### 2.3 TradingView Desktop을 CDP 모드로 실행
 
 **Windows (MSIX 설치 기본):**
 
@@ -103,7 +95,7 @@ cp rules.example.json rules.json
 
 실행 후 `http://localhost:9222/json/version` 응답이 돌아오면 성공.
 
-#### 2.5 Claude Code 재시작
+#### 2.4 Claude Code 재시작
 
 ```bash
 # 현재 세션 종료
@@ -118,7 +110,7 @@ claude
 
 첫 실행 시 `.mcp.json`의 신뢰를 묻는 프롬프트가 나올 수 있습니다 → `y`.
 
-#### 2.6 검증
+#### 2.5 검증
 
 ```
 /mcp
@@ -136,7 +128,6 @@ tv_health_check 실행해줘
 "내 차트 상태 알려줘"
 "BTC 4시간 봉으로 봐줘"
 "BTC 김치 프리미엄 알려줘"
-"morning_brief 실행해줘"
 ```
 
 ## 4. 트러블슈팅

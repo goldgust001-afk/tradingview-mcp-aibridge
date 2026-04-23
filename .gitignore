@@ -1,8 +1,7 @@
 # Dependencies
 node_modules/
 
-# User-specific config (keep .example versions committed, actual config stays local)
-rules.json
+# User-specific config
 .env
 .env.local
 
