@@ -17,7 +17,7 @@ Claude Code에 아래 프롬프트 한 번만 복사-붙여넣기:
 
 ```
 Set up tradingview-mcp-aibridge for me.
-Clone https://github.com/aibridge-leo/tradingview-mcp-aibridge.git into the current project directory.
+Clone https://github.com/goldgust001-afk/tradingview-mcp-aibridge.git into the current project directory.
 Run npm install inside it.
 Create .mcp.json in the project root with:
   {
